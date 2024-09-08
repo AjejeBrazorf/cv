@@ -3,16 +3,6 @@
   "rules": {
     "no-restricted-exports": "off",
     "quotes": ["error", "single"],
-    "prettier/prettier": ["error", {
-      "singleQuote": true,
-      "semi": false,
-      "printWidth": 80,
-      "trailingComma": "es5",
-      "arrowParens": "always",
-      "bracketSpacing": true,
-      "bracketSameLine": true,
-      "jsxSingleQuote": true
-    }],
     "react/prop-types": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/ban-ts-comment": "off",
