@@ -1,0 +1,102 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "no-restricted-exports": "off",
+    "quotes": ["error", "single"],
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "semi": false,
+      "printWidth": 80,
+      "trailingComma": "es5",
+      "arrowParens": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": true,
+      "jsxSingleQuote": true
+    }],
+    "react/prop-types": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+    "@typescript-eslint/no-extra-non-null-assertion": "error",
+    "@typescript-eslint/no-unnecessary-condition": 0,
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        }
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
+        "groups": [
+          // import {useState} from 'React'
+          "external",
+          // import type {ReactNode} from 'React'
+          // "type",
+          "internal",
+          "index",
+          "parent",
+          "sibling",
+          "builtin",
+          "object"
+        ]
+      }
+    ],
+    "no-shadow": "off",
+    "no-multiple-empty-lines": 2,
+    "no-multi-spaces": 2,
+    "no-use-before-define": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": 0,
+    "react/jsx-props-no-spreading": 0,
+    "import/prefer-default-export": 0,
+    "react/require-default-props": 0,
+    "no-underscore-dangle": 0,
+    "import/extensions": [
+      "error",
+      {
+        "style": "always",
+        "json": "always",
+        "svg": "always"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "function-expression"
+      }
+    ]
+  }
+}

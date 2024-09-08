@@ -1,0 +1,59 @@
+<svg id="visual" viewBox="0 0 900 675"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+
+    <defs>
+        <linearGradient id="grad1_0" x1="25%" y1="0%" x2="100%" y2="100%">
+            <stop offset="23.333333333333336%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad1_1" x1="25%" y1="0%" x2="100%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#3c3a82" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad1_2" x1="25%" y1="0%" x2="100%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#181818" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#3c3a82" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad2_0" x1="0%" y1="0%" x2="75%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad2_1" x1="0%" y1="0%" x2="75%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#3c3a82" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad2_2" x1="0%" y1="0%" x2="75%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#3c3a82" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#181818" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <g transform="translate(0, 675)">
+        <path d="M0 -393.7C47.5 -372.2 94.9 -350.6 135.5 -327.1C176 -303.5 209.6 -278 250.3 -250.3C291 -222.6 338.7 -192.8 363.8 -150.7C388.9 -108.6 391.3 -54.3 393.8 0L0 0Z" fill="#2c294a">
+        </path>
+        <path d="M0 -262.5C31.6 -248.1 63.3 -233.7 90.3 -218C117.3 -202.3 139.8 -185.3 166.9 -166.9C194 -148.4 225.8 -128.5 242.5 -100.5C259.2 -72.4 260.9 -36.2 262.5 0L0 0Z" fill="#494dbf">
+        </path>
+        <path d="M0 -131.2C15.8 -124.1 31.6 -116.9 45.2 -109C58.7 -101.2 69.9 -92.7 83.4 -83.4C97 -74.2 112.9 -64.3 121.3 -50.2C129.6 -36.2 130.4 -18.1 131.3 0L0 0Z" fill="#5260ff">
+        </path>
+    </g>
+</svg>

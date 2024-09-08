@@ -1,0 +1,58 @@
+<svg id="visual" viewBox="0 0 900 675"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <defs>
+        <linearGradient id="grad1_0" x1="25%" y1="0%" x2="100%" y2="100%">
+            <stop offset="23.333333333333336%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad1_1" x1="25%" y1="0%" x2="100%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#3c3a82" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad1_2" x1="25%" y1="0%" x2="100%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#181818" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#3c3a82" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad2_0" x1="0%" y1="0%" x2="75%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad2_1" x1="0%" y1="0%" x2="75%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#3c3a82" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#5260ff" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad2_2" x1="0%" y1="0%" x2="75%" y2="100%">\n
+            <stop offset="23.333333333333336%" stop-color="#3c3a82" stop-opacity="1">
+</stop>
+            <stop offset="76.66666666666666%" stop-color="#181818" stop-opacity="1">
+</stop>
+        </linearGradient>
+    </defs>
+    <g transform="translate(900, 0)">
+        <path d="M0 393.8C-42.5 364.6 -85 335.4 -132 318.7C-179.1 302.1 -230.7 297.8 -272.2 272.2C-313.8 246.6 -345.2 199.6 -363.8 150.7C-382.3 101.7 -388 50.9 -393.7 0L0 0Z" fill="#2c294a">
+        </path>
+        <path d="M0 262.5C-28.3 243.1 -56.6 223.6 -88 212.5C-119.4 201.4 -153.8 198.6 -181.5 181.5C-209.2 164.4 -230.1 133.1 -242.5 100.5C-254.9 67.8 -258.7 33.9 -262.5 0L0 0Z" fill="#494dbf">
+        </path>
+        <path d="M0 131.3C-14.2 121.5 -28.3 111.8 -44 106.2C-59.7 100.7 -76.9 99.3 -90.7 90.7C-104.6 82.2 -115.1 66.5 -121.3 50.2C-127.4 33.9 -129.3 17 -131.2 0L0 0Z" fill="#5260ff">
+        </path>
+    </g>
+</svg>
