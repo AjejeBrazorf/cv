@@ -40,10 +40,7 @@
           "builtin"
         ],
         "groups": [
-          // import {useState} from 'React'
           "external",
-          // import type {ReactNode} from 'React'
-          // "type",
           "internal",
           "index",
           "parent",

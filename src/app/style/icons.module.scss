@@ -1,0 +1,96 @@
+.icon-gg-mail,
+.icon-gg-mail::after {
+  display: block;
+  box-sizing: border-box;
+  height: 14px;
+  border: 2px solid;
+  border-radius: 4px;
+}
+
+.icon-gg-mail {
+  overflow: hidden;
+  transform: scale(var(--ggs, 1));
+  position: relative;
+  width: 18px;
+  border-radius: 2px;
+}
+
+.icon-gg-mail::after {
+  content: "";
+  position: absolute;
+  border-radius: 3px;
+  width: 14px;
+  transform: rotate(-45deg);
+  bottom: 3px;
+  left: 0;
+}
+
+.icon-gg-pin {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: rotate(45deg) scale(var(--ggs, 1));
+  width: 32px;
+  height: 18px;
+  border-radius: 100% 100% 0 100%;
+  border: 2px solid;
+  margin-top: -4px;
+  margin-left: -3px;
+}
+
+.icon-gg-pin::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid;
+  top: 3px;
+  left: 3px;
+  border-radius: 40px;
+}
+
+.icon-gg-link {
+  margin-left: 5px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: rotate(-45deg) scale(var(--ggs, 1));
+  width: 8px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 4px;
+}
+
+.icon-gg-link::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  border-radius: 3px;
+  width: 8px;
+  height: 10px;
+  border: 2px solid;
+  top: -4px;
+  border-right: 0;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  left: -6px;
+}
+
+.icon-gg-link::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  border-radius: 3px;
+  width: 8px;
+  height: 10px;
+  border: 2px solid;
+  top: -4px;
+  border-left: 0;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  right: -6px;
+}

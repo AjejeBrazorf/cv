@@ -1,0 +1,33 @@
+/// Responsive mixin for container queries with media query fallback.
+/// @param {Number} $container-breakpoint - The max-width for the container query.
+/// @param {Number} $viewport-breakpoint - The max-width for the media query fallback.
+///   If not provided, defaults to the container breakpoint.
+/// @param {String|null} $container - (Optional) The name of the container.
+///   If provided, the container query will be scoped to that named container.
+@mixin respond(
+  $container-breakpoint,
+  $viewport-breakpoint: null,
+  $container: null
+) {
+  $viewport-breakpoint: if($viewport-breakpoint == null, $container-breakpoint, $viewport-breakpoint);
+
+  @if $container {
+    @supports (container-type: inline-size) {
+      @container #{$container} (max-width: #{$container-breakpoint}) {
+        @content;
+      }
+    }
+  } @else {
+    @supports (container-type: inline-size) {
+      @container (max-width: #{$container-breakpoint}) {
+        @content;
+      }
+    }
+  }
+
+  @supports not (container-type: inline-size) {
+    @media screen and (max-width: #{$viewport-breakpoint}) {
+      @content;
+    }
+  }
+}
