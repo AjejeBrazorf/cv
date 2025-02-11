@@ -1,8 +1,7 @@
-import type { FC } from 'react';
+import type { FC } from 'react'
 import React from 'react'
 import Image from 'next/image'
 
-import ProfilePic from '../../../assets/profile.webp'
 import icons from '../../../style/icons.module.scss'
 
 import styles from './Header.module.scss'
@@ -19,6 +18,7 @@ export interface PersonalInfo {
   title: string
   quote: string
   links: Link[]
+  profilePictureUrl: string
 }
 
 interface HeaderProps {
@@ -29,7 +29,7 @@ const Header: FC<HeaderProps> = ({ personalInfo }) => {
   return (
     <div className={styles.headerContainer}>
     <header className={styles.headerInner}>
-      <Image src={ProfilePic.src} alt="profile" width={200} height={200} className={styles.picture} />
+      <Image src={personalInfo.profilePictureUrl} alt="profile" width={200} height={200} className={styles.picture} />
       <div className={styles.content}>
         <h1 className={styles.name}>{personalInfo.name}</h1>
         <div className={styles.contact}>

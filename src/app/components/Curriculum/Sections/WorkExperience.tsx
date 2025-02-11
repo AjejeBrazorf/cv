@@ -1,9 +1,8 @@
-import type { FC } from 'react';
+import type { FC} from 'react'
+import Image from 'next/image'
 import React from 'react'
 
 import { Section } from '@/app/components/Section/Section'
-
-import { useLogo } from '../../../hooks/useLogo'
 
 import styles from './WorkExperience.module.scss'
 
@@ -15,6 +14,7 @@ export interface Job {
   duration_end: string
   location: string
   tasks: string[]
+  iconUrl: string
 }
 
 interface WorkExperienceProps {
@@ -22,8 +22,6 @@ interface WorkExperienceProps {
 }
 
 const WorkExperience: FC<WorkExperienceProps> = ({ workExperience }) => {
-  const { logoComponent } = useLogo()
-
   return (
       <Section
         title={'Work Experience'}
@@ -34,7 +32,7 @@ const WorkExperience: FC<WorkExperienceProps> = ({ workExperience }) => {
               <a className={styles.link} href={job.link} target="_blank" rel="noopener noreferrer">
                 {job.company}
               </a>{' '}
-              {logoComponent(job.company)}
+              <Image src={job.iconUrl} alt={`${job.company} logo`} width={100} height={50} />
             </>),
             content:
             (

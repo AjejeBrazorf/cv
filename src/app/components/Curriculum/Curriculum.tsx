@@ -1,20 +1,20 @@
-import type { FC } from 'react';
+import type { FC } from 'react'
 import React from 'react'
 
 import Decoration1 from '../../assets/blob-scene-haikei-2.svg'
 import Decoration2 from '../../assets/blob-scene-haikei.svg'
 
 import styles from './Curriculum.module.scss'
-import type { PersonalInfo } from './Sections/Header';
+import type { PersonalInfo } from './Sections/Header'
 import Header from './Sections/Header'
-import type { Job } from './Sections/WorkExperience';
+import type { Job } from './Sections/WorkExperience'
 import WorkExperience from './Sections/WorkExperience'
-import type { EducationItem } from './Sections/Education';
+import type { EducationItem } from './Sections/Education'
 import Education from './Sections/Education'
 import Tools from './Sections/Tools'
-import type { Publication } from './Sections/Publications';
+import type { Publication } from './Sections/Publications'
 import Publications from './Sections/Publications'
-import type { Language } from './Sections/Languages';
+import type { Language } from './Sections/Languages'
 import Languages from './Sections/Languages'
 import Interests from './Sections/Interests'
 

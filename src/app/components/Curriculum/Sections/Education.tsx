@@ -1,9 +1,8 @@
-import type { FC } from 'react';
+import type { FC } from 'react'
 import React from 'react'
+import Image from 'next/image'
 
 import { Section } from '@/app/components/Section/Section'
-
-import { useLogo } from '../../../hooks/useLogo'
 
 import styles from './Education.module.scss'
 
@@ -13,6 +12,7 @@ export interface EducationItem {
   link: string
   duration: string
   location: string
+  iconUrl: string
   final_grade?: string
 }
 
@@ -21,7 +21,6 @@ interface EducationProps {
 }
 
 const Education: FC<EducationProps> = ({ education }) => {
-  const { logoComponent } = useLogo()
 
   return (<Section
         title={'Education'}
@@ -29,7 +28,7 @@ const Education: FC<EducationProps> = ({ education }) => {
         {
           return {
             title: (<>
-              {activity.degree} at {logoComponent(activity.institution)}
+              {activity.degree} at <Image src={activity.iconUrl} alt={`${activity.institution} logo`} width={125} height={50} />
               <a className={styles.link} href={activity.link} target="_blank" rel="noopener noreferrer">
                 {activity.institution}
               </a>

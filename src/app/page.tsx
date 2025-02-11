@@ -26,7 +26,43 @@ const fetchCurriculumData = async () => {
 
   const curriculumData = data[0]
 
-  const organizedTools = (curriculumData.tools || []).reduce((acc: Record<string, string[]>, curr: { category: string; tool: string }) => {
+  const workExperience = await Promise.all(
+    (curriculumData.work_experience || []).map(async (exp: { icon_url: string}) => {
+      if (exp.icon_url) {
+        const { data: { publicUrl } } = supabase
+          .storage
+          .from('logos')
+          .getPublicUrl(exp.icon_url)
+        return { ...exp, iconUrl: publicUrl }
+      }
+      return exp
+    })
+  )
+
+  const education = await Promise.all(
+    (curriculumData.education || []).map(async (exp: { icon_url: string}) => {
+      console.log(exp.icon_url)
+      if (exp.icon_url) {
+        const { data: { publicUrl } } = supabase
+          .storage
+          .from('logos')
+          .getPublicUrl(exp.icon_url)
+        return { ...exp, iconUrl: publicUrl }
+      }
+      return exp
+    })
+  )
+
+  let profilePictureUrl = curriculumData.picture_url
+  if (profilePictureUrl) {
+    const { data: { publicUrl } } = supabase
+      .storage
+      .from('profile')
+      .getPublicUrl(profilePictureUrl)
+    profilePictureUrl = publicUrl
+  }
+
+  const tools = (curriculumData.tools || []).reduce((acc: Record<string, string[]>, curr: { category: string; tool: string }) => {
     const { category, tool } = curr
     if (!acc[category]) acc[category] = []
     acc[category].push(tool)
@@ -36,10 +72,10 @@ const fetchCurriculumData = async () => {
   const interests = (curriculumData.interests || []).map(({ interest }: { interest: string }) => interest)
 
   return {
-    personalInfo: { ...curriculumData },
-    workExperience: curriculumData.work_experience || [],
-    education: curriculumData.education || [],
-    tools: organizedTools,
+    personalInfo: { ...curriculumData, profilePictureUrl },
+    workExperience,
+    education,
+    tools,
     publications: curriculumData.publications || [],
     languages: curriculumData.languages || [],
     interests,
