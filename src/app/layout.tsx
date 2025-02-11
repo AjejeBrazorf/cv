@@ -5,7 +5,8 @@ import { cookies } from 'next/headers'
 
 import { createClient } from '@/utils/supabase/server'
 
-const fetchMetadata = async () => {
+
+export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies()
   const supabase = createClient(cookieStore)
 
@@ -45,10 +46,8 @@ const fetchMetadata = async () => {
         }
       ]
     }
-  } as Metadata
+  }
 }
-
-export const metadata: Metadata = await fetchMetadata()
 
 const RootLayout = ({
   children,

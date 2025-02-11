@@ -19,7 +19,7 @@ const Publications: FC<PublicationsProps> = ({ publications }) => {
   return (
       <Section
         title='Publications'
-        subsections={publications.map((publication, index) =>
+        subsections={publications.map((publication) =>
           {
         return {
           title: (<a target="_blank" rel="noopener noreferrer" href={publication.link}>
