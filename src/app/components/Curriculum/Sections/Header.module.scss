@@ -93,7 +93,7 @@ $tablet: 1024px;
       justify-content: center;
       align-items: center;
       text-align: center;
-
+      margin-left: calc(-1* var(--header-margin-left));
       * {
         align-content: center;
       }
@@ -156,6 +156,7 @@ $tablet: 1024px;
   }
 
   .contact {
+    max-width: 50%;
     display: flex;
     flex-direction: column;
     --spacing: 10px;
@@ -185,7 +186,7 @@ $tablet: 1024px;
       gap: calc(var(--spacing) * 2);
       margin-left: var(--spacing);
 
-      @include small() {
+      @include medium() {
         justify-content: center;
       }
 

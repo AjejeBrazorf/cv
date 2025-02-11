@@ -114,7 +114,7 @@ a {
 }
 
 
-a, a * {
+a, a h3 {
   color: var(--color-secondary-500);
   font-weight: bolder;
   font-family: monospace;
@@ -126,7 +126,6 @@ h2 {
 }
 h3 {
   color: var(--color-primary-200);
-  margin-bottom: .3em;
 }
 span {
   margin: 0.3em 0.5em 0.3em 0;
@@ -141,4 +140,5 @@ span {
   margin: 0.3em 0.5em 0.3em 0;
   font-size: 0.9rem;
 }
+
 

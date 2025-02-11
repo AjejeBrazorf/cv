@@ -13,3 +13,11 @@
   align-items: flex-start;
   justify-content: flex-end;
 }
+
+.logo {
+  position: relative !important;
+  width: 120px !important;
+  height: auto !important;
+  margin-bottom: -10px;
+  translate: 0 -10px;
+}

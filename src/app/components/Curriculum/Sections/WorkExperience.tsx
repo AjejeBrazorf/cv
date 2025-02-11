@@ -32,7 +32,7 @@ const WorkExperience: FC<WorkExperienceProps> = ({ workExperience }) => {
               <a className={styles.link} href={job.link} target="_blank" rel="noopener noreferrer">
                 {job.company}
               </a>{' '}
-              <Image src={job.iconUrl} alt={`${job.company} logo`} width={100} height={50} />
+              <Image className={styles.logo} src={job.iconUrl} alt={`${job.company} logo`} width={100} height={50} />
             </>),
             content:
             (

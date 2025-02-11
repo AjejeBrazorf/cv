@@ -1,4 +1,5 @@
 @use '../../style/utils' as *;
+@use '../../style/animations' as *;
 
 $smallResume: 600px;
 $mediumResume: 1065px;
@@ -34,7 +35,7 @@ $tablet: 1024px;
 .resume {
   display: flex;
   flex-direction: column;
-  max-width: 980px;
+  width: clamp(380px, 100%, 980px);
   padding: 20px 50px 30px 50px;
   color: #b1b1b1;
   background-color: var(--color-dark-900);
@@ -42,6 +43,7 @@ $tablet: 1024px;
   border-radius: 22px;
   position: relative;
   overflow: hidden;
+  @include animate-stagger-to-depth(50, .8, .2);
   transition: all var(--easing-duration) var(--easing);
   * {
     transition: all var(--easing-duration) var(--easing);
@@ -134,8 +136,6 @@ $tablet: 1024px;
   grid-template-columns: 2fr 1fr;
   grid-column-gap: 1em;
   grid-template-rows: auto;
-  -webkit-backdrop-filter: blur(21px);
-  backdrop-filter: blur(21px);
   overflow: hidden;
   margin: 0 -20px;
   border-radius: 22px;
@@ -156,7 +156,6 @@ $tablet: 1024px;
     display: flex;
     flex-direction: column;
     gap: 1em;
-
   }
 
   .sidebar {
@@ -165,7 +164,6 @@ $tablet: 1024px;
     display: flex;
     flex-direction: column;
     gap: 1em;
-
   }
 
   .background {

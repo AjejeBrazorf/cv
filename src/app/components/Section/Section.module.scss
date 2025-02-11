@@ -1,4 +1,3 @@
-
 .root {
   display: flex;
   flex-direction: column;
@@ -7,7 +6,14 @@
   padding: 1em;
   border-radius: 17px;
   background: rgba(43, 41, 74, 0.12);
-  // background: rgba(43, 41, 74, 1);
+  background:
+          linear-gradient(
+              to top right,
+              color(from var(--color-primary-900) srgb r g b / 0.05),
+              color(from var(--color-primary-200) srgb r g b / 0.05) 60%
+          );
+  -webkit-backdrop-filter: blur(21px);
+  backdrop-filter: blur(21px);
 
   .subsection {
     position: relative;

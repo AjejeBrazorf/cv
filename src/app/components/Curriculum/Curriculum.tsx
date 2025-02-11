@@ -29,38 +29,38 @@ type CurriculumProps = {
 }
 
 export const Curriculum: FC<CurriculumProps> = ({
-                                                  personalInfo,
-                                                  workExperience,
-                                                  education,
-                                                  tools,
-                                                  publications,
-                                                  languages,
-                                                  interests,
-                                                }) => {
+    personalInfo,
+    workExperience,
+    education,
+    tools,
+    publications,
+    languages,
+    interests,
+  }) => {
   return (
     <div className={styles.resumeContainer}>
       <div className={styles.resume}>
         <Decoration1 />
         <Decoration2 />
-        <p className={styles.title}>{personalInfo.title}</p>
-        <p className={styles.quote}>{personalInfo.quote}</p>
-
         <Header personalInfo={personalInfo} />
 
         <main className={styles.mainContent}>
 
           <section className={styles.contentLeft}>
             <WorkExperience workExperience={workExperience} />
-            <Education education={education} />
           </section>
 
           <aside className={styles.sidebar}>
-            <Tools tools={tools} />
+            <Education education={education} />
             <Publications publications={publications} />
+            <Tools tools={tools} />
             <Languages languages={languages} />
             <Interests interests={interests} />
           </aside>
+
         </main>
+        <p className={styles.title}>{personalInfo.title}</p>
+        <p className={styles.quote}>{personalInfo.quote}</p>
       </div>
     </div>
   )
