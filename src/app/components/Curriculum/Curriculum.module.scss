@@ -1,7 +1,7 @@
 @use '../../style/utils' as *;
 @use '../../style/animations' as *;
 
-$smallResume: 600px;
+$smallResume: 650px;
 $mediumResume: 1065px;
 
 $mobile: 600px;
@@ -35,7 +35,7 @@ $tablet: 1024px;
 .resume {
   display: flex;
   flex-direction: column;
-  width: clamp(380px, 100%, 980px);
+  max-width: 980px;
   padding: 20px 50px 30px 50px;
   color: #b1b1b1;
   background-color: var(--color-dark-900);
