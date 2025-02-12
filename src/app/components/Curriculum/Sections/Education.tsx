@@ -28,7 +28,7 @@ const Education: FC<EducationProps> = ({ education }) => {
         {
           return {
             title: (<>
-              {activity.degree} at <Image className={styles.logo} src={activity.iconUrl} alt={`${activity.institution} logo`} fill />
+              {activity.degree} at <Image className={styles.logo} src={activity.iconUrl} alt={`${activity.institution} logo`} fill loading='lazy' />
               <a className={styles.link} href={activity.link} target="_blank" rel="noopener noreferrer">
                 {activity.institution}
               </a>

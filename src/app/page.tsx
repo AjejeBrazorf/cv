@@ -3,6 +3,9 @@ import { cookies } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 import { Curriculum } from '@/app/components/Curriculum'
 
+export const dynamic = 'force-static'
+export const revalidate = 3600
+
 const fetchCurriculumData = async () => {
   const cookieStore = await cookies()
   const supabase = createClient(cookieStore)
@@ -29,11 +32,7 @@ const fetchCurriculumData = async () => {
   const workExperience = await Promise.all(
     (curriculumData.work_experience || []).map(async (exp: { icon_url: string}) => {
       if (exp.icon_url) {
-        const { data: { publicUrl } } = supabase
-          .storage
-          .from('logos')
-          .getPublicUrl(exp.icon_url)
-        return { ...exp, iconUrl: publicUrl }
+        return { ...exp, iconUrl: `/api/image/logos/${exp.icon_url}` }
       }
       return exp
     })
@@ -41,25 +40,16 @@ const fetchCurriculumData = async () => {
 
   const education = await Promise.all(
     (curriculumData.education || []).map(async (exp: { icon_url: string}) => {
-      console.log(exp.icon_url)
       if (exp.icon_url) {
-        const { data: { publicUrl } } = supabase
-          .storage
-          .from('logos')
-          .getPublicUrl(exp.icon_url)
-        return { ...exp, iconUrl: publicUrl }
+        return { ...exp, iconUrl: `/api/image/logos/${exp.icon_url}` }
       }
       return exp
     })
   )
 
-  let profilePictureUrl = curriculumData.picture_url
-  if (profilePictureUrl) {
-    const { data: { publicUrl } } = supabase
-      .storage
-      .from('profile')
-      .getPublicUrl(profilePictureUrl)
-    profilePictureUrl = publicUrl
+  let profilePictureUrl = null
+  if (curriculumData.picture_url) {
+    profilePictureUrl = `/api/image/profile/${curriculumData.picture_url}`
   }
 
   const tools = (curriculumData.tools || []).reduce((acc: Record<string, string[]>, curr: { category: string; tool: string }) => {

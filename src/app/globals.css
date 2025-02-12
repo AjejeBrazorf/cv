@@ -10,7 +10,7 @@
           0.845 30.4%, 0.883 35.1%, 0.916 40.6%, 0.942 47.2%, 0.963 55%, 0.979 64%,
           0.991 74.4%, 0.998 86.4%, 1
   );;
-  --easing-duration: .5s;
+  --easing-duration: .2s;
   --primary: #5260ff;
   --secondary: #7cd584;
   --light: #cbcfff;

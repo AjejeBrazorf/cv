@@ -29,7 +29,7 @@ const Header: FC<HeaderProps> = ({ personalInfo }) => {
   return (
     <div className={styles.headerContainer}>
     <header className={styles.headerInner}>
-      <Image src={personalInfo.profilePictureUrl} alt="profile" width={200} height={200} className={styles.picture} />
+      <Image className={styles.picture} priority src={personalInfo.profilePictureUrl} alt="profile" width={200} height={200} />
       <div className={styles.content}>
         <h1 className={styles.name}>{personalInfo.name}</h1>
         <div className={styles.contact}>

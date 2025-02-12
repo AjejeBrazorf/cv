@@ -1,5 +1,4 @@
 @use '../../style/utils' as *;
-@use '../../style/animations' as *;
 
 $smallResume: 650px;
 $mediumResume: 1065px;
@@ -43,7 +42,6 @@ $tablet: 1024px;
   border-radius: 22px;
   position: relative;
   overflow: hidden;
-  @include animate-stagger-to-depth(50, .8, .2);
   transition: all var(--easing-duration) var(--easing);
   * {
     transition: all var(--easing-duration) var(--easing);
