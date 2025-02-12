@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 
 import { Section } from '@/app/components/Section/Section'
+import { TimelineEntry } from '@/app/components/TimelineEntry'
 
 import styles from './WorkExperience.module.scss'
 
@@ -10,8 +11,10 @@ export interface Job {
   position: string
   company: string
   link: string
-  duration_start: string
-  duration_end: string
+  time: {
+    start: string | null
+    end: string | null
+  }
   location: string
   tasks: string[]
   iconUrl: string
@@ -37,10 +40,7 @@ const WorkExperience: FC<WorkExperienceProps> = ({ workExperience }) => {
             content:
             (
               <>
-                <p>
-                  {job.duration_start} - {job.duration_end}
-                </p>
-                <p>{job.location}</p>
+                <TimelineEntry time={job.time} place={job.location} />
                 <h4>Responsibilities</h4>
                 <ul>
                   {job.tasks.map((task, taskIndex) => (

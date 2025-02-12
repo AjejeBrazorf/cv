@@ -30,20 +30,23 @@ const fetchCurriculumData = async () => {
   const curriculumData = data[0]
 
   const workExperience = await Promise.all(
-    (curriculumData.work_experience || []).map(async (exp: { icon_url: string}) => {
+    (curriculumData.work_experience || []).map(async (exp: { icon_url: string; started_at: string | null; ended_at: string | null}) => {
+      let newExp = { ...exp, iconUrl: '', time: { start: exp.started_at, end: exp.ended_at } }
       if (exp.icon_url) {
-        return { ...exp, iconUrl: `/api/image/logos/${exp.icon_url}` }
+        newExp = { ...newExp, iconUrl: `/api/image/logos/${exp.icon_url}` }
       }
-      return exp
+      return newExp
     })
   )
 
   const education = await Promise.all(
-    (curriculumData.education || []).map(async (exp: { icon_url: string}) => {
+    (curriculumData.education || []).map(async (exp: { icon_url: string; started_at: string | null; ended_at: string | null}) => {
+      console.log(exp.started_at, exp.ended_at)
+      let newExp = { ...exp, iconUrl: '', time: { start: exp.started_at, end: exp.ended_at } }
       if (exp.icon_url) {
-        return { ...exp, iconUrl: `/api/image/logos/${exp.icon_url}` }
+        newExp = { ...newExp, iconUrl:`/api/image/logos/${exp.icon_url}` }
       }
-      return exp
+      return newExp
     })
   )
 

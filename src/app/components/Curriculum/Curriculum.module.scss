@@ -132,7 +132,7 @@ $tablet: 1024px;
 .mainContent {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-column-gap: 1em;
+  grid-column-gap: 2em;
   grid-template-rows: auto;
   overflow: hidden;
   margin: 0 -20px;
@@ -143,6 +143,7 @@ $tablet: 1024px;
   @include medium() {
     display: flex;
     flex-direction: column;
+    gap: 2em;
     box-sizing: border-box;
     max-width: calc(100% - 32px);
     margin: 10px auto;
@@ -153,7 +154,7 @@ $tablet: 1024px;
     grid-column: 1 / 2;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
   }
 
   .sidebar {
@@ -161,7 +162,7 @@ $tablet: 1024px;
     grid-row: 1 / 4;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
   }
 
   .background {

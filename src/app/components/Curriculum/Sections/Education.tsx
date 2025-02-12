@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 
 import { Section } from '@/app/components/Section/Section'
+import { TimelineEntry } from '@/app/components/TimelineEntry'
 
 import styles from './Education.module.scss'
 
@@ -10,7 +11,10 @@ export interface EducationItem {
   degree: string
   institution: string
   link: string
-  duration: string
+  time: {
+    start: string | null
+    end: string | null
+  }
   location: string
   iconUrl: string
   final_grade?: string
@@ -36,8 +40,9 @@ const Education: FC<EducationProps> = ({ education }) => {
             content:
               (
                 <>
-                  <p>{activity.duration}</p>
-                  <p>{activity.location}</p>
+                  <TimelineEntry time={activity.time}
+                  place={activity.location}
+                  />
                   {activity.final_grade && <p>Final Grade: {activity.final_grade}</p>}
                 </>)
           }
