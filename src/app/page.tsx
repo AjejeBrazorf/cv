@@ -2,6 +2,8 @@ import { cookies } from 'next/headers'
 
 import { createClient } from '@/utils/supabase/server'
 import { Curriculum } from '@/app/components/Curriculum'
+import DownloadPageAsPdfButton from '@/app/components/DownloadPageAsPdfButton/DownloadPageAsPdfButton'
+import PrintContainer from '@/app/components/PrintContainer/PrintContainer'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -82,7 +84,13 @@ const Page = async ()=> {
     return <span> there was an error </span>
   }
 
-  return <Curriculum {...curriculum} />
+  return(
+  <>
+    <PrintContainer>
+      <Curriculum {...curriculum} />
+    </PrintContainer>
+    <DownloadPageAsPdfButton />
+  </>)
 }
 
 export default Page

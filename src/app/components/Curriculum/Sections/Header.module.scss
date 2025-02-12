@@ -87,7 +87,12 @@ $tablet: 1024px;
       flex-wrap: wrap;
       margin-top: -36px;
       border-radius: 22px;
-      background: #18181866;
+      background:
+              linear-gradient(
+                              to top right,
+                              color(from var(--color-primary-900) srgb r g b / 0.05),
+                              color(from var(--color-primary-200) srgb r g b / 0.05) 60%
+              );
       backdrop-filter: blur(21px);
       padding: 5px 10px;
       justify-content: center;
@@ -131,7 +136,10 @@ $tablet: 1024px;
   }
 
   .name {
-    color: var(--light);
+    color: var(--color-light-500);
+    @media (prefers-color-scheme: light) {
+      filter: invert(1);
+    }
     font-size: 76px;
     line-height: 0.9em;
     box-shadow: none;

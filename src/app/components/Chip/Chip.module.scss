@@ -1,7 +1,10 @@
 .root {
   display: inline-block;
   padding: 5px 10px;
-  background: linear-gradient(to top right, var(--color-primary-400), var(--color-secondary-100) 80%);
+  background: linear-gradient(to top right, var(--color-secondary-400), var(--color-secondary-100) 80%);
   color: var(--color-secondary-100-contrast);
   border-radius: 6px;
+  @media print {
+    background: var(--color-secondary-100);
+  }
 }

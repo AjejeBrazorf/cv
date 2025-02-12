@@ -36,7 +36,10 @@ $tablet: 1024px;
   flex-direction: column;
   max-width: 980px;
   padding: 20px 50px 30px 50px;
-  color: #b1b1b1;
+  color: var(--color-dark-500);
+  @media (prefers-color-scheme: light) {
+    color: var(--foreground);
+  }
   background-color: var(--color-dark-900);
   box-shadow: 0 0 40px 0 var(--color-primary-900), 0 0 0 4px var(--color-primary-900);
   border-radius: 22px;
@@ -53,6 +56,10 @@ $tablet: 1024px;
     left: 0;
     z-index: 0;
     overflow: hidden;
+
+    @media (prefers-color-scheme: light) {
+      filter: invert(1);
+    }
   }
   & >*:not(svg) {
     z-index: 1;
