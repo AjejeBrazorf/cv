@@ -28,7 +28,9 @@ const Education: FC<EducationProps> = ({ education }) => {
 
   return (<Section
         title={'Education'}
-        subsections={education.map((activity) =>
+        subsections={education
+          .sort((eduA, eduB) => new Date(eduB.time.end || eduB.time.start || '').getTime() - new Date(eduA.time.end || eduA.time.start || '').getTime())
+          .map((activity) =>
         {
           return {
             title: (<>

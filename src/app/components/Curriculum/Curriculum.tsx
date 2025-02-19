@@ -48,6 +48,7 @@ export const Curriculum: FC<CurriculumProps> = ({
 
           <section className={styles.contentLeft}>
             <WorkExperience workExperience={workExperience} />
+            <Interests interests={interests} />
           </section>
 
           <aside className={styles.sidebar}>
@@ -55,7 +56,6 @@ export const Curriculum: FC<CurriculumProps> = ({
             <Publications publications={publications} />
             <Tools tools={tools} />
             <Languages languages={languages} />
-            <Interests interests={interests} />
           </aside>
 
         </main>

@@ -28,7 +28,9 @@ const WorkExperience: FC<WorkExperienceProps> = ({ workExperience }) => {
   return (
       <Section
         title={'Work Experience'}
-        subsections={workExperience.map((job) =>
+        subsections={workExperience
+          .sort((jobA, jobB) => new Date(jobB.time.end || jobB.time.start || '').getTime() - new Date(jobA.time.end || jobA.time.start || '').getTime())
+          .map((job) =>
         {
           return {
             title: (<>{job.position} at{' '}

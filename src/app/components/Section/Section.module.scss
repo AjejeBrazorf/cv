@@ -1,7 +1,7 @@
 .root {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 1em;
   margin: 0;
   padding: 1em;
   border-radius: 17px;
@@ -59,10 +59,9 @@
 
     h3 {
       display: flex;
-      gap: .5ch;
+      gap: 1ch;
       align-items: center;
       margin-left: 0;
-      max-width: 400px;
     }
   }
 }

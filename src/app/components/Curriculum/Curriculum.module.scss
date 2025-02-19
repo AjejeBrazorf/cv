@@ -36,6 +36,7 @@ $tablet: 1024px;
   flex-direction: column;
   max-width: 980px;
   padding: 20px 50px 30px 50px;
+  margin: 20px auto 30px auto;
   color: var(--color-dark-500);
   @media (prefers-color-scheme: light) {
     color: var(--foreground);
@@ -73,8 +74,6 @@ $tablet: 1024px;
     bottom: 0;
   }
 
-  margin: 20px auto 30px auto;
-
   @include medium() {
     padding: 0 16px;
     margin: 16px 8px;
@@ -84,6 +83,10 @@ $tablet: 1024px;
   @include small() {
     margin: 0;
     padding: 0;
+  }
+
+  @media print {
+    margin: 0 auto;
   }
 
   .title {
@@ -139,7 +142,7 @@ $tablet: 1024px;
 .mainContent {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-column-gap: 2em;
+  grid-column-gap: 1em;
   grid-template-rows: auto;
   overflow: hidden;
   margin: 0 -20px;
@@ -160,8 +163,9 @@ $tablet: 1024px;
   .contentLeft {
     grid-column: 1 / 2;
     display: flex;
-    flex-direction: column;
-    gap: 2em;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
   }
 
   .sidebar {
@@ -169,7 +173,7 @@ $tablet: 1024px;
     grid-row: 1 / 4;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
   }
 
   .background {

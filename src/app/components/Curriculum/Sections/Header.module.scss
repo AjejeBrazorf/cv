@@ -94,11 +94,13 @@ $tablet: 1024px;
                               color(from var(--color-primary-200) srgb r g b / 0.05) 60%
               );
       backdrop-filter: blur(21px);
-      padding: 5px 10px;
+      padding: 10px 10px;
       justify-content: center;
       align-items: center;
       text-align: center;
       margin-left: calc(-1* var(--header-margin-left));
+      max-width: min(100vw, calc(100% + var(--header-margin-left) * 2));
+      box-sizing: border-box;
       * {
         align-content: center;
       }

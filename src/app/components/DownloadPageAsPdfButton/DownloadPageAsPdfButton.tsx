@@ -1,38 +1,104 @@
-'use client';
+'use client'
 
-import type { FC } from 'react';
-import { useSearchParams } from 'next/navigation';
+import type { FC} from 'react';
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+import type { RiveEventPayload} from '@rive-app/react-canvas';
+import { EventType, useRive, useStateMachineInput } from '@rive-app/react-canvas'
+import clsx from 'clsx'
+
+import { useDownload } from '@/app/components/DownloadPageAsPdfButton/useDownload'
+
+import styles from './DownloadPageAsPdfButton.module.scss'
+import ButtonRiv from './asset/DownloadButton.riv'
 
 interface DownloadPageAsPdfButtonProps {
   url?: string
 }
 
-const DownloadPageAsPdfButton: FC<DownloadPageAsPdfButtonProps> = ({url}) => {
-  const searchParams = useSearchParams();
+const RIVE_CONFIG = {
+  artboard: 'Button',
+  stateMachine: 'Download',
+  inputs: {
+    triggers: {
+      stop: 'stop',
+      start: 'start',
+    },
+    states: {
+      hover: 'buttonHovered',
+    },
+  },
+  states: {
+    start: 'start download',
+    download: 'downloading',
+    stop: 'stop download',
+  },
+}
+
+const DownloadPageAsPdfButton: FC<DownloadPageAsPdfButtonProps> = ({ url }) => {
+  const searchParams = useSearchParams()
+  const { download, isDownloading } = useDownload()
+  const [hover, setHover] = useState(false)
+  const { rive, RiveComponent } = useRive({
+    src: ButtonRiv,
+    artboard: RIVE_CONFIG.artboard,
+    stateMachines: RIVE_CONFIG.stateMachine,
+    autoplay: true,
+    onStateChange: async (event) => {
+      if (!event.data) return
+
+      let state = event.data as string
+      if (Array.isArray(event.data) && event.data.length > 0) {
+        state = event.data.pop() as string
+      }
+
+      if (state === RIVE_CONFIG.states.download) {
+        await handleDownload()
+      }
+    },
+  })
+
+  const stopDownloadAnimationTrigger = useStateMachineInput(
+    rive,
+    RIVE_CONFIG.stateMachine,
+    RIVE_CONFIG.inputs.triggers.stop,
+  )
+
+  useEffect(() => {
+    if (rive) {
+      rive.on(EventType.RiveEvent, (riveEvent) => {
+        const event = (riveEvent.data as RiveEventPayload)?.name as string
+        setHover(event === 'Button Hovered')
+      });
+    }
+  }, [rive]);
+
+  useEffect(() => {
+    if (!isDownloading && stopDownloadAnimationTrigger) {
+      stopDownloadAnimationTrigger.fire()
+    }
+  }, [isDownloading, stopDownloadAnimationTrigger])
+
   // If the URL includes ?pdf=true, do not render the button.
-  const isPdf = searchParams.get('pdf') === 'true';
-  if (isPdf) return null;
+  const isPdf = searchParams.get('pdf') === 'true'
+  if (isPdf) return null
 
-  const handleDownload = () => {
-    // Get the current URL and append ?pdf=true so the download button is hidden in the PDF.
-    const currentUrl = url || window.location.href;
-    const urlObj = new URL(currentUrl);
-    urlObj.searchParams.set('pdf', 'true');
-
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const colorScheme = prefersDark ? 'dark' : 'light';
-    urlObj.searchParams.set('colorScheme', colorScheme);
-
-    const pdfPageUrl = urlObj.toString();
-    const apiUrl = `/api/generate-pdf?url=${encodeURIComponent(pdfPageUrl)}`;
-    window.open(apiUrl, '_blank');
-  };
+  const handleDownload = async () => {
+    await download(url || window.location.href)
+  }
 
   return (
-    <button onClick={handleDownload} data-hide-print="true">
-      Download PDF
-    </button>
-  );
-};
+    <div
+      data-hide-print="true"
+      className={clsx(styles.root, {
+        [styles.isDownloading]: isDownloading,
+        [styles.hover]: hover,
+      })}
+    >
+      <RiveComponent />
+    </div>
+  )
+}
 
-export default DownloadPageAsPdfButton;
+export default DownloadPageAsPdfButton

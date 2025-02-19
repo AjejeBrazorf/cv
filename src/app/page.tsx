@@ -2,7 +2,6 @@ import { cookies } from 'next/headers'
 
 import { createClient } from '@/utils/supabase/server'
 import { Curriculum } from '@/app/components/Curriculum'
-import DownloadPageAsPdfButton from '@/app/components/DownloadPageAsPdfButton/DownloadPageAsPdfButton'
 import PrintContainer from '@/app/components/PrintContainer/PrintContainer'
 
 export const dynamic = 'force-static'
@@ -43,7 +42,6 @@ const fetchCurriculumData = async () => {
 
   const education = await Promise.all(
     (curriculumData.education || []).map(async (exp: { icon_url: string; started_at: string | null; ended_at: string | null}) => {
-      console.log(exp.started_at, exp.ended_at)
       let newExp = { ...exp, iconUrl: '', time: { start: exp.started_at, end: exp.ended_at } }
       if (exp.icon_url) {
         newExp = { ...newExp, iconUrl:`/api/image/logos/${exp.icon_url}` }
@@ -85,12 +83,9 @@ const Page = async ()=> {
   }
 
   return(
-  <>
     <PrintContainer>
       <Curriculum {...curriculum} />
-    </PrintContainer>
-    <DownloadPageAsPdfButton />
-  </>)
+    </PrintContainer>)
 }
 
 export default Page
