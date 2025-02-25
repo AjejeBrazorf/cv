@@ -2,7 +2,6 @@ import { cookies } from 'next/headers'
 
 import { createClient } from '@/utils/supabase/server'
 import { Curriculum } from '@/app/components/Curriculum'
-import PrintContainer from '@/app/components/PrintContainer/PrintContainer'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
