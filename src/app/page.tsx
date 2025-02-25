@@ -82,10 +82,7 @@ const Page = async ()=> {
     return <span> there was an error </span>
   }
 
-  return(
-    <PrintContainer>
-      <Curriculum {...curriculum} />
-    </PrintContainer>)
+  return( <Curriculum {...curriculum} />)
 }
 
 export default Page
