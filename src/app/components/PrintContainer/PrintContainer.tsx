@@ -24,7 +24,7 @@ const PrintContainer: FC<{ children: ReactNode }> = ({ children }) => {
     const A4HeightPx = (297 * 96) / 25.4
     const containerWidth = container.offsetWidth
     const containerHeight = container.offsetHeight
-    const scaleFactor = Math.min(A4WidthPx / containerWidth, A4HeightPx / containerHeight) * 1.6
+    const scaleFactor = Math.min(A4WidthPx / containerWidth, A4HeightPx / containerHeight) * 1.3
 
     container.style.zoom = scaleFactor.toString()
   }, [searchParams])

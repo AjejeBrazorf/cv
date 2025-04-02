@@ -1,18 +1,10 @@
 import type { FC } from 'react'
-import React from 'react'
 
 import { Section } from '@/app/components/Section/Section'
-
-
-export interface Publication {
-  title: string
-  link: string
-  date: string
-  description: string
-}
+import type { Publication as PublicationType } from '@/types/curriculum'
 
 interface PublicationsProps {
-  publications: Publication[]
+  publications: PublicationType[]
 }
 
 const Publications: FC<PublicationsProps> = ({ publications }) => {

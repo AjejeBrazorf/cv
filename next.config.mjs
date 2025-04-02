@@ -22,7 +22,13 @@ const nextConfig = {
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: '*.supabase.co',
+            hostname: 'github.com',
+            port: '',
+            pathname: '/**',
+          },
+          {
+            protocol: 'https',
+            hostname: 'ajeje-host.netlify.app',
             port: '',
             pathname: '/**',
           },

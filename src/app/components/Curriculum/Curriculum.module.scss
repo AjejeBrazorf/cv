@@ -38,15 +38,15 @@ $tablet: 1024px;
   padding: 20px 50px 30px 50px;
   margin: 20px auto 30px auto;
   color: var(--color-dark-500);
-  @media (prefers-color-scheme: light) {
-    color: var(--foreground);
-  }
   background-color: var(--color-dark-900);
   box-shadow: 0 0 40px 0 var(--color-primary-900), 0 0 0 4px var(--color-primary-900);
   border-radius: 22px;
   position: relative;
   overflow: hidden;
   transition: all var(--easing-duration) var(--easing);
+  @media (prefers-color-scheme: light) {
+    color: var(--foreground);
+  }
   * {
     transition: all var(--easing-duration) var(--easing);
   }

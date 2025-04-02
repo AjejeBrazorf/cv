@@ -1,31 +1,15 @@
 import type { FC } from 'react'
-import React from 'react'
-import Image from 'next/image'
 
 import { Section } from '@/app/components/Section/Section'
 import { TimelineEntry } from '@/app/components/TimelineEntry'
+import type { Education as EducationType } from '@/types/curriculum'
 
-import styles from './Education.module.scss'
-
-export interface EducationItem {
-  degree: string
-  institution: string
-  link: string
-  time: {
-    start: string | null
-    end: string | null
-  }
-  location: string
-  iconUrl: string
-  final_grade?: string
-}
 
 interface EducationProps {
-  education: EducationItem[]
+  education: EducationType[]
 }
 
 const Education: FC<EducationProps> = ({ education }) => {
-
   return (<Section
         title={'Education'}
         subsections={education
@@ -33,12 +17,7 @@ const Education: FC<EducationProps> = ({ education }) => {
           .map((activity) =>
         {
           return {
-            title: (<>
-              {activity.degree} at <Image className={styles.logo} src={activity.iconUrl} alt={`${activity.institution} logo`} fill loading='lazy' />
-              <a className={styles.link} href={activity.link} target="_blank" rel="noopener noreferrer">
-                {activity.institution}
-              </a>
-            </>),
+            title: `${activity.degree} at ${activity.institution}`,
             content:
               (
                 <>

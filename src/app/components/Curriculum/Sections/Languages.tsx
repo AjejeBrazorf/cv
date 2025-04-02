@@ -1,20 +1,13 @@
 import type { FC } from 'react'
-import React from 'react'
 
 import { Chip } from '@/app/components/Chip/Chip'
-import { Section } from '@/app/components/Section/Section'
 import { ChipList } from '@/app/components/ChipList/ChipList'
-
-export interface Language {
-  id: number
-  language: string
-  proficiency: string
-}
+import { Section } from '@/app/components/Section/Section'
+import type { Language as LanguageType } from '@/types/curriculum'
 
 export interface LanguagesProps {
-  languages: Language[]
+  languages: LanguageType[]
 }
-
 
 const Languages: FC<LanguagesProps> = ({ languages }) => {
   return (
@@ -22,8 +15,8 @@ const Languages: FC<LanguagesProps> = ({ languages }) => {
         {
           content:
             <ChipList
-              chips={languages.map(({ language, proficiency, id }) =><Chip key={id}>
-                    {language}: {proficiency}
+              chips={languages.map(({ language, level }, index) =><Chip key={index}>
+                    {language}: {level}
                   </Chip>)} />
         }
       ]

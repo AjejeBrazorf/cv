@@ -1,50 +1,36 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import './globals.css'
-import { cookies } from 'next/headers'
 
-import { createClient } from '@/utils/supabase/server'
+import { fetchCurriculumData } from '@/utils/data'
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies()
-  const supabase = createClient(cookieStore)
-
-  const { data, error } = await supabase
-    .from('profiles')
-    .select(`
-      *
-    `)
-  if (error || !data || data.length === 0) {
-    return { }
+  const curriculumData = await fetchCurriculumData()
+  
+  if (!curriculumData) {
+    return {}
   }
-  const curriculumData = data[0]
-  let profilePictureUrl = curriculumData.picture_url
-  if (profilePictureUrl) {
-    const { data: { publicUrl } } = supabase
-      .storage
-      .from('profile')
-      .getPublicUrl(profilePictureUrl)
-    profilePictureUrl = publicUrl
-  }
+  
+  const { personalInfo } = curriculumData
 
   return {
-    title: curriculumData.name,
-    description: curriculumData.title,
-    keywords: ['cv', 'curriculum', curriculumData.name, curriculumData.title],
+    title: personalInfo.name,
+    description: personalInfo.title,
+    keywords: ['cv', 'curriculum', personalInfo.name, personalInfo.title],
     openGraph: {
-      title: curriculumData.name,
-      description: curriculumData.title,
+      title: personalInfo.name,
+      description: personalInfo.title,
       type: 'profile',
-      emails: [curriculumData.email],
-      countryName: curriculumData.location,
-      images: [
+      emails: [personalInfo.email],
+      countryName: personalInfo.location,
+      images: personalInfo.profilePictureUrl ? [
         {
-          alt: curriculumData.name,
-          href: profilePictureUrl,
-          url: profilePictureUrl,
+          alt: personalInfo.name,
+          href: personalInfo.profilePictureUrl,
+          url: personalInfo.profilePictureUrl,
         }
-      ]
+      ] : []
     }
   }
 }
@@ -57,11 +43,11 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body>
-        {children}
+        
+          {children}
       </body>
     </html>
   )
 }
-
 
 export default RootLayout

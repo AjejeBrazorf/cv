@@ -1,27 +1,12 @@
-import type { FC} from 'react'
-import Image from 'next/image'
-import React from 'react'
+import type { FC } from 'react'
 
 import { Section } from '@/app/components/Section/Section'
 import { TimelineEntry } from '@/app/components/TimelineEntry'
+import type { WorkExperience as WorkExperienceType } from '@/types/curriculum'
 
-import styles from './WorkExperience.module.scss'
-
-export interface Job {
-  position: string
-  company: string
-  link: string
-  time: {
-    start: string | null
-    end: string | null
-  }
-  location: string
-  tasks: string[]
-  iconUrl: string
-}
 
 interface WorkExperienceProps {
-  workExperience: Job[]
+  workExperience: WorkExperienceType[]
 }
 
 const WorkExperience: FC<WorkExperienceProps> = ({ workExperience }) => {
@@ -33,12 +18,7 @@ const WorkExperience: FC<WorkExperienceProps> = ({ workExperience }) => {
           .map((job) =>
         {
           return {
-            title: (<>{job.position} at{' '}
-              <a className={styles.link} href={job.link} target="_blank" rel="noopener noreferrer">
-                {job.company}
-              </a>{' '}
-              <Image className={styles.logo} src={job.iconUrl} alt={`${job.company} logo`} width={100} height={50} loading='lazy' />
-            </>),
+            title: `${job.position} at ${job.company}`,
             content:
             (
               <>

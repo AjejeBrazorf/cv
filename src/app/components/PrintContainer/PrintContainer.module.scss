@@ -1,11 +1,11 @@
 .printContainer {
+  position: relative;
   @media print {
     break-inside: avoid;
     page-break-inside: avoid;
     zoom: .9;
     object-fit: contain;
   }
-  position: relative;
   .actions {
     position: fixed;
     bottom: 0;

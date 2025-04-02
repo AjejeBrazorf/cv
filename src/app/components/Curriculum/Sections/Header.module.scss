@@ -139,12 +139,12 @@ $tablet: 1024px;
 
   .name {
     color: var(--color-light-500);
-    @media (prefers-color-scheme: light) {
-      filter: invert(1);
-    }
     font-size: 76px;
     line-height: 0.9em;
     box-shadow: none;
+    @media (prefers-color-scheme: light) {
+      filter: invert(1);
+    }
 
     @include medium() {
       font-size: 65px;
@@ -166,7 +166,7 @@ $tablet: 1024px;
   }
 
   .contact {
-    max-width: 50%;
+    max-width: 40%;
     display: flex;
     flex-direction: column;
     --spacing: 10px;
@@ -176,6 +176,7 @@ $tablet: 1024px;
       justify-content: center;
       align-items: center;
       text-align: center;
+      max-width: 100%;
     }
 
     span,
@@ -195,6 +196,7 @@ $tablet: 1024px;
       flex-wrap: wrap;
       gap: calc(var(--spacing) * 2);
       margin-left: var(--spacing);
+      justify-content: center;
 
       @include medium() {
         justify-content: center;
@@ -202,20 +204,6 @@ $tablet: 1024px;
 
       a {
         padding: 0;
-        position: relative;
-
-        @include medium() {
-          &:not(:last-of-type):after {
-            content: ' ';
-            position: absolute;
-            right: calc(-1 * var(--spacing));
-            --top: 15%;
-            top: var(--top);
-            height: calc(100% - var(--top) * 2);
-            width: 1px;
-            background: currentColor;
-          }
-        }
       }
     }
   }

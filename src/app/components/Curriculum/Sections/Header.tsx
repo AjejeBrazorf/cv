@@ -1,25 +1,11 @@
-import type { FC } from 'react'
-import React from 'react'
 import Image from 'next/image'
+import type { FC } from 'react'
+
+import type { PersonalInfo } from '@/types/curriculum'
 
 import icons from '../../../style/icons.module.scss'
 
 import styles from './Header.module.scss'
-
-interface Link {
-  name: string
-  url: string
-}
-
-export interface PersonalInfo {
-  name: string
-  email: string
-  location: string
-  title: string
-  quote: string
-  links: Link[]
-  profilePictureUrl: string
-}
 
 interface HeaderProps {
   personalInfo: PersonalInfo
@@ -29,7 +15,9 @@ const Header: FC<HeaderProps> = ({ personalInfo }) => {
   return (
     <div className={styles.headerContainer}>
     <header className={styles.headerInner}>
-      <Image className={styles.picture} priority src={personalInfo.profilePictureUrl} alt="profile" width={200} height={200} />
+      {personalInfo.profilePictureUrl && (
+        <Image className={styles.picture} priority src={personalInfo.profilePictureUrl} alt="profile" width={200} height={200} />
+      )}
       <div className={styles.content}>
         <h1 className={styles.name}>{personalInfo.name}</h1>
         <div className={styles.contact}>

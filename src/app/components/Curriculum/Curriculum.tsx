@@ -1,27 +1,23 @@
 import type { FC } from 'react'
-import React from 'react'
+
+import type { Education, Language, PersonalInfo, Publication, WorkExperience } from '@/types/curriculum'
 
 import Decoration1 from '../../assets/blob-scene-haikei-2.svg'
 import Decoration2 from '../../assets/blob-scene-haikei.svg'
 
 import styles from './Curriculum.module.scss'
-import type { PersonalInfo } from './Sections/Header'
+import EducationComponent from './Sections/Education'
 import Header from './Sections/Header'
-import type { Job } from './Sections/WorkExperience'
-import WorkExperience from './Sections/WorkExperience'
-import type { EducationItem } from './Sections/Education'
-import Education from './Sections/Education'
-import Tools from './Sections/Tools'
-import type { Publication } from './Sections/Publications'
-import Publications from './Sections/Publications'
-import type { Language } from './Sections/Languages'
-import Languages from './Sections/Languages'
 import Interests from './Sections/Interests'
+import Languages from './Sections/Languages'
+import Publications from './Sections/Publications'
+import Tools from './Sections/Tools'
+import WorkExperienceComponent from './Sections/WorkExperience'
 
 type CurriculumProps = {
   personalInfo: PersonalInfo
-  workExperience: Job[]
-  education: EducationItem[]
+  workExperience: WorkExperience[]
+  education: Education[]
   tools: Record<string, string[]>
   publications: Publication[]
   languages: Language[]
@@ -47,15 +43,15 @@ export const Curriculum: FC<CurriculumProps> = ({
         <main className={styles.mainContent}>
 
           <section className={styles.contentLeft}>
-            <WorkExperience workExperience={workExperience} />
-            <Interests interests={interests} />
+            <WorkExperienceComponent workExperience={workExperience} />
+            <EducationComponent education={education} />
           </section>
 
           <aside className={styles.sidebar}>
-            <Education education={education} />
             <Publications publications={publications} />
             <Tools tools={tools} />
             <Languages languages={languages} />
+            <Interests interests={interests} />
           </aside>
 
         </main>
