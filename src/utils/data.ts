@@ -1,3 +1,5 @@
+import { CurriculumData } from "@/types/curriculum";
+
 export async function fetchCurriculumData(): Promise<CurriculumData | null> {
   const gistUrl = process.env.NEXT_PUBLIC_CV_GIST_URL;
 
