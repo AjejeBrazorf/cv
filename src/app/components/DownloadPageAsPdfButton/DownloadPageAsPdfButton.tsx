@@ -66,13 +66,20 @@ const DownloadPageAsPdfButton: FC<DownloadPageAsPdfButtonProps> = ({ url }) => {
   )
 
   useEffect(() => {
-    if (rive) {
-      rive.on(EventType.RiveEvent, (riveEvent) => {
-        const event = (riveEvent.data as RiveEventPayload)?.name as string
-        setHover(event === 'Button Hovered')
-      });
-    }
-  }, [rive]);
+  if (!rive) return;
+
+    const onRiveEvent = (riveEvent: any) => {
+      const eventData = riveEvent.data as RiveEventPayload;
+      setHover(eventData?.name === 'Button Hovered');
+    };
+
+    rive.on(EventType.RiveEvent, onRiveEvent);
+    
+    // Important cleanup for React 19
+    return () => {
+      rive.off(EventType.RiveEvent, onRiveEvent);
+    };
+  }, [rive]); 
 
   useEffect(() => {
     if (!isDownloading && stopDownloadAnimationTrigger) {
