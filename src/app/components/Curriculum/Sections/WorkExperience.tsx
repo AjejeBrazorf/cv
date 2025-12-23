@@ -3,6 +3,7 @@ import type { FC } from 'react'
 import { Section } from '@/app/components/Section/Section'
 import { TimelineEntry } from '@/app/components/TimelineEntry'
 import type { WorkExperience as WorkExperienceType } from '@/types/curriculum'
+import { sortTimelineItems } from '@utils/sortTimelineItems'
 
 
 interface WorkExperienceProps {
@@ -10,12 +11,11 @@ interface WorkExperienceProps {
 }
 
 const WorkExperience: FC<WorkExperienceProps> = ({ workExperience }) => {
+  const sortedJobs = sortTimelineItems(workExperience);
   return (
       <Section
         title={'Work Experience'}
-        subsections={workExperience
-          .sort((jobA, jobB) => new Date(jobB.time.end || jobB.time.start || '').getTime() - new Date(jobA.time.end || jobA.time.start || '').getTime())
-          .map((job) =>
+        subsections={sortedJobs.map((job) =>
         {
           return {
             title: `${job.position} at ${job.company}`,

@@ -3,17 +3,18 @@ import type { FC } from 'react'
 import { Section } from '@/app/components/Section/Section'
 import { TimelineEntry } from '@/app/components/TimelineEntry'
 import type { Education as EducationType } from '@/types/curriculum'
-
+import { sortTimelineItems } from '@utils/sortTimelineItems'
 
 interface EducationProps {
   education: EducationType[]
 }
 
 const Education: FC<EducationProps> = ({ education }) => {
+    const sortedActivities = sortTimelineItems(education);
+  
   return (<Section
         title={'Education'}
-        subsections={education
-          .sort((eduA, eduB) => new Date(eduB.time.end || eduB.time.start || '').getTime() - new Date(eduA.time.end || eduA.time.start || '').getTime())
+        subsections={sortedActivities
           .map((activity) =>
         {
           return {
