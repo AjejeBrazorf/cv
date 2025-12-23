@@ -9,10 +9,13 @@ export async function fetchCurriculumData(): Promise<CurriculumData | null> {
   }
 
   try {
-    const response = await fetch(gistUrl, {
-      cache: 'force-cache'
-    });
+    const buildTime = new Date().getTime();
+    const urlWithCacheBuster = `${gistUrl}${gistUrl.includes('?') ? '&' : '?'}t=${buildTime}`;
 
+    const response = await fetch(urlWithCacheBuster, {
+      cache: 'no-store'
+    });
+    
     if (!response.ok) {
       throw new Error(`Failed to fetch: ${response.statusText}`);
     }
