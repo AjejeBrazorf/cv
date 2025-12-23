@@ -3,7 +3,7 @@ import type { FC } from 'react'
 import { Section } from '@/app/components/Section/Section'
 import { TimelineEntry } from '@/app/components/TimelineEntry'
 import type { Education as EducationType } from '@/types/curriculum'
-import { sortTimelineItems } from '@utils/sortTimelineItems'
+import { sortTimelineItems } from '@/utils/sortTimelineItems'
 
 interface EducationProps {
   education: EducationType[]
