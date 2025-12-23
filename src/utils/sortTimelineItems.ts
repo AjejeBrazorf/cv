@@ -3,11 +3,6 @@ import { Time } from "@/types/curriculum";
 interface HasTime {
   time?: Time;
 }
-import { Time } from "@/types/curriculum";
-
-interface HasTime {
-  time?: Time;
-}
 
 const getTimestamp = (dateStr: string | null | undefined, isEndFallback: boolean = false): number => {
   if (!dateStr || dateStr.trim() === "") {
@@ -27,7 +22,7 @@ export const sortTimelineItems = <T extends HasTime>(items: T[] = []): T[] => {
   if (!items || !Array.isArray(items)) return [];
 
   return [...items].sort((a, b) => {
-    
+
     if (!a.time && !b.time) return 0;
     if (!a.time) return 1;
     if (!b.time) return -1;
