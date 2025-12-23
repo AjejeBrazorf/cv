@@ -17,6 +17,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'github.com' },
       { protocol: 'https', hostname: 'ajeje-host.netlify.app' },
       { protocol: 'http', hostname: 'localhost', port: '3000' },
+      { protocol: 'http', hostname: 'ajejebrazorf.github.io' },
     ],
   },
 };
