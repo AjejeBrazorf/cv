@@ -1,10 +1,19 @@
+import type { FC } from 'react';
+import styles from './TimelineEntry.module.scss';
+import { Time } from '@/types/curriculum';
+
+interface TimelineEntryProps {
+  time?: Time;
+  place?: string;
+}
+
 export const TimelineEntry: FC<TimelineEntryProps> = ({ place, time }) => {
   
-  // Helper to parse "MM/YYYY" safely
   const parseDate = (dateStr: string | null | undefined) => {
     if (!dateStr) return null;
     if (dateStr.includes('/')) {
       const [month, year] = dateStr.split('/');
+      // Note: Date constructor uses 0-indexed months
       return new Date(parseInt(year), parseInt(month) - 1, 1);
     }
     return new Date(dateStr);
@@ -26,7 +35,6 @@ export const TimelineEntry: FC<TimelineEntryProps> = ({ place, time }) => {
     let years = endObj.getFullYear() - startObj.getFullYear();
     let months = endObj.getMonth() - startObj.getMonth();
 
-    // Adjust for negative months
     if (months < 0) {
       years--;
       months += 12;
@@ -44,8 +52,8 @@ export const TimelineEntry: FC<TimelineEntryProps> = ({ place, time }) => {
     <article className={styles.root}>
       {time && (
         <p className={styles.time}>
-          <span>{calculateTimePeriod(time.start, time.end)}</span>
-          <span>
+          <span className={styles.duration}>{calculateTimePeriod(time.start, time.end)}</span>
+          <span className={styles.dates}>
             ({time.start ? formatDate(time.start) : ''} - {time.end ? formatDate(time.end) : 'Present'})
           </span>
         </p>
