@@ -1,7 +1,7 @@
-import { TimeRange } from "@/types/curriculum";
+import { Time } from "@/types/curriculum";
 
 interface HasTime {
-  time?: TimeRange;
+  time?: Time;
 }
 
 export const sortTimelineItems = <T extends HasTime>(items: T[] = []): T[] => {
